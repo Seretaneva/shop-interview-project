@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/subcategories")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SubCategoryController {
     @Autowired
     private SubCategoryService subCategoryService;
