@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.evelinaseretan</groupId>
-	<artifactId>product-app</artifactId>
+	<artifactId>shop-interview-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product-app</name>
+	<name>shop-interview-project</name>
 	<description>Product Application</description>
 	<url/>
 	<licenses>
@@ -47,10 +47,10 @@
             <version>2.4.240</version>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>4.0.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
