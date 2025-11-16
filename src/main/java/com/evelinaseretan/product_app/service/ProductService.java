@@ -35,20 +35,20 @@ public class ProductService {
         return productsBetween;
     }
 
-    public List<Product> findByHigherPrice(float minPrice){
+    public List<Product> findByHigherPrice(float maxPrice){
         List<Product> productsHighest = new ArrayList<>();
         for(Product product : productRepository.findAll()) {
-            if (product.getPrice() > minPrice) {
+            if (product.getPrice() < maxPrice) {
                 productsHighest.add(product);
             }
         }
         return  productsHighest;
     }
 
-    public List<Product> findByLowerPrice(float maxPrice){
+    public List<Product> findByLowerPrice(float minPrice){
         List<Product> productsLower = new ArrayList<>();
         for(Product product : productRepository.findAll()) {
-            if (product.getPrice() < maxPrice) {
+            if (product.getPrice() > minPrice) {
                 productsLower.add(product);
             }
         }
