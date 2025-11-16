@@ -5,6 +5,7 @@ import com.evelinaseretan.product_app.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,5 +23,35 @@ public class ProductService {
 
     public List<Product> getProductsByName(String name){
         return productRepository.getProductsByName(name);
+    }
+
+    public List<Product> findByPriceBetween(float minPrice, float maxPrice){
+        List<Product> productsBetween = new ArrayList<>();
+        for(Product product : productRepository.findAll()){
+            if(product.getPrice() > minPrice && product.getPrice() < maxPrice){
+                productsBetween.add(product);
+            }
+        }
+        return productsBetween;
+    }
+
+    public List<Product> findByHigherPrice(float minPrice){
+        List<Product> productsHighest = new ArrayList<>();
+        for(Product product : productRepository.findAll()) {
+            if (product.getPrice() > minPrice) {
+                productsHighest.add(product);
+            }
+        }
+        return  productsHighest;
+    }
+
+    public List<Product> findByLowerPrice(float maxPrice){
+        List<Product> productsLower = new ArrayList<>();
+        for(Product product : productRepository.findAll()) {
+            if (product.getPrice() < maxPrice) {
+                productsLower.add(product);
+            }
+        }
+        return  productsLower;
     }
 }
