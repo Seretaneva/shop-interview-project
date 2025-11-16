@@ -1,14 +1,9 @@
 package com.evelinaseretan.product_app.controller;
 
 import com.evelinaseretan.product_app.model.Product;
-import com.evelinaseretan.product_app.repository.ProductRepository;
 import com.evelinaseretan.product_app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +13,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public List<Product> getAllProducts()  {
-        return productService.getAllProducts();
+    public List<Product> getProducts(@RequestParam(required = false) String name, @RequestParam(required = false) float minPrice) {
+        if (name == null) {
+            return productService.getAllProducts();
+        }
+        return productService.getProductsByName(name);
     }
 
     @PostMapping("/add-product")
