@@ -17,4 +17,8 @@ public class Product {
     private String sellerName;
     private float price;
     private int quantity;
+
+    @ManyToOne
+    @JoinColumn(name="sub_category_id")
+    private SubCategory subCategory;
 }
